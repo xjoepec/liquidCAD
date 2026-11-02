@@ -1,0 +1,16 @@
+[package]
+name = "liquidcad-occt"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Geometry kernel: OpenCascade through a minimal C++ adapter, with a Rust B-rep fallback"
+links = "liquidcad_occt"
+
+[dependencies]
+chrono.workspace = true
+liquidcad-core = { path = "../liquidcad-core" }
+serde_json.workspace = true
+thiserror.workspace = true
+
+[build-dependencies]
+cc = "1"

@@ -1,0 +1,22 @@
+[package]
+name = "liquidcad-cli"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Headless liquidCAD CLI and JSON-lines engine server"
+
+[[bin]]
+name = "liquidcad"
+path = "src/main.rs"
+
+[dependencies]
+liquidcad-core = { path = "../liquidcad-core" }
+liquidcad-dxf = { path = "../liquidcad-dxf" }
+liquidcad-engine = { path = "../liquidcad-engine" }
+liquidcad-occt = { path = "../liquidcad-occt" }
+liquidcad-protocol = { path = "../liquidcad-protocol" }
+liquidcad-sim = { path = "../liquidcad-sim" }
+serde_json.workspace = true
+
+[target.'cfg(unix)'.dependencies]
+libc = "0.2"

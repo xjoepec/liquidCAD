@@ -1,0 +1,12 @@
+[package]
+name = "liquidcad-core"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Parametric feature graph, stable identities, engineering checks, and the dock model"
+
+[dependencies]
+indexmap.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true

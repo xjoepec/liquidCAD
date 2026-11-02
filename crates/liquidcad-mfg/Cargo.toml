@@ -1,0 +1,11 @@
+[package]
+name = "liquidcad-mfg"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Manufacturing: BOM CSV, drawing sheet and PDF, stock cut planning, validation"
+
+[dependencies]
+chrono.workspace = true
+liquidcad-core = { path = "../liquidcad-core" }
+serde.workspace = true

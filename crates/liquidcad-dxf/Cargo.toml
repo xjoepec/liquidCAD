@@ -1,0 +1,9 @@
+[package]
+name = "liquidcad-dxf"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "DXF R12 fabrication export"
+
+[dependencies]
+liquidcad-core = { path = "../liquidcad-core" }

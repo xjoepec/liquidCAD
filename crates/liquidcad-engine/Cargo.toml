@@ -1,0 +1,17 @@
+[package]
+name = "liquidcad-engine"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "CAD session: transactional edits, undo, history, kernel sync, export"
+
+[dependencies]
+liquidcad-core = { path = "../liquidcad-core" }
+liquidcad-dxf = { path = "../liquidcad-dxf" }
+liquidcad-mfg = { path = "../liquidcad-mfg" }
+liquidcad-occt = { path = "../liquidcad-occt" }
+liquidcad-protocol = { path = "../liquidcad-protocol" }
+liquidcad-sim = { path = "../liquidcad-sim" }
+liquidcad-store = { path = "../liquidcad-store" }
+serde_json.workspace = true
+thiserror.workspace = true

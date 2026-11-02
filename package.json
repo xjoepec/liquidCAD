@@ -1,0 +1,18 @@
+{
+  "name": "liquidcad",
+  "private": true,
+  "description": "Workspace scripts. The desktop app lives in apps/desktop, the engine in crates/.",
+  "scripts": {
+    "setup": "npm --prefix apps/desktop install && cargo build -p liquidcad-cli",
+    "engine": "cargo build -p liquidcad-cli",
+    "milestone": "cargo run -p liquidcad-cli -- eval projects/modular-dock/liquidcad.json artifacts/milestone",
+    "desktop": "cargo build -p liquidcad-cli && npm --prefix apps/desktop run dev",
+    "start": "cargo build -p liquidcad-cli && npm --prefix apps/desktop run build && npm --prefix apps/desktop start",
+    "test": "cargo test --workspace && npm --prefix apps/desktop test",
+    "test:e2e": "cargo build -p liquidcad-cli && npm --prefix apps/desktop run test:e2e",
+    "lint": "cargo fmt --all --check && cargo clippy --workspace --all-targets -- -D warnings && npm --prefix apps/desktop run typecheck",
+    "package": "cargo build --release -p liquidcad-cli && node scripts/stage-engine.mjs && npm --prefix apps/desktop run package",
+    "test:no-occt": "cargo test --workspace --target-dir target/no-occt --config \"env.LIQUIDCAD_NO_OCCT='1'\"",
+    "demo": "cargo build -p liquidcad-cli && npm --prefix apps/desktop run demo && node scripts/encode-demos.mjs"
+  }
+}

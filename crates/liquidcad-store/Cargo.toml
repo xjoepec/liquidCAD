@@ -1,0 +1,13 @@
+[package]
+name = "liquidcad-store"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "SQLite project metadata and revision history"
+
+[dependencies]
+chrono.workspace = true
+liquidcad-core = { path = "../liquidcad-core" }
+rusqlite.workspace = true
+serde.workspace = true
+thiserror.workspace = true

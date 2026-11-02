@@ -1,0 +1,10 @@
+[package]
+name = "liquidcad-sim"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Time-domain heave/roll/pitch screening of a floating dock in regular waves"
+
+[dependencies]
+liquidcad-core = { path = "../liquidcad-core" }
+serde.workspace = true

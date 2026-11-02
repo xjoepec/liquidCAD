@@ -1,0 +1,453 @@
+{
+  "schema": 2,
+  "id": "proj.modular_dock",
+  "name": "Modular floating dock",
+  "units": "inch",
+  "parameters": {
+    "width_in": {
+      "name": "width_in",
+      "label": "Dock width",
+      "value": 96.0,
+      "unit": "inch",
+      "min": 48.0,
+      "max": 240.0,
+      "step": 24.0,
+      "snap": true,
+      "group": "plan"
+    },
+    "length_in": {
+      "name": "length_in",
+      "label": "Dock length",
+      "value": 192.0,
+      "unit": "inch",
+      "min": 96.0,
+      "max": 480.0,
+      "step": 24.0,
+      "snap": true,
+      "group": "plan"
+    },
+    "module_in": {
+      "name": "module_in",
+      "label": "Float module",
+      "value": 24.0,
+      "unit": "inch",
+      "min": 24.0,
+      "max": 48.0,
+      "step": 24.0,
+      "snap": true,
+      "group": "plan"
+    },
+    "float_height_in": {
+      "name": "float_height_in",
+      "label": "Float height",
+      "value": 16.0,
+      "unit": "inch",
+      "min": 12.0,
+      "max": 24.0,
+      "step": 1.0,
+      "snap": false,
+      "group": "floats"
+    },
+    "beam_width_in": {
+      "name": "beam_width_in",
+      "label": "Frame tube width",
+      "value": 2.0,
+      "unit": "inch",
+      "min": 1.5,
+      "max": 4.0,
+      "step": 0.25,
+      "snap": false,
+      "group": "frame"
+    },
+    "beam_height_in": {
+      "name": "beam_height_in",
+      "label": "Frame tube depth",
+      "value": 4.0,
+      "unit": "inch",
+      "min": 2.0,
+      "max": 8.0,
+      "step": 0.5,
+      "snap": false,
+      "group": "frame"
+    },
+    "joist_spacing_in": {
+      "name": "joist_spacing_in",
+      "label": "Joist spacing",
+      "value": 48.0,
+      "unit": "inch",
+      "min": 24.0,
+      "max": 96.0,
+      "step": 24.0,
+      "snap": true,
+      "group": "frame"
+    },
+    "deck_thickness_in": {
+      "name": "deck_thickness_in",
+      "label": "Deck thickness",
+      "value": 1.0,
+      "unit": "inch",
+      "min": 0.75,
+      "max": 2.0,
+      "step": 0.25,
+      "snap": false,
+      "group": "deck"
+    },
+    "live_load_psf": {
+      "name": "live_load_psf",
+      "label": "Design live load",
+      "value": 30.0,
+      "unit": "psf",
+      "min": 0.0,
+      "max": 100.0,
+      "step": 5.0,
+      "snap": false,
+      "group": "loads"
+    },
+    "gangway_length_in": {
+      "name": "gangway_length_in",
+      "label": "Gangway length",
+      "value": 144.0,
+      "unit": "inch",
+      "min": 72.0,
+      "max": 360.0,
+      "step": 12.0,
+      "snap": true,
+      "group": "gangway"
+    },
+    "gangway_width_in": {
+      "name": "gangway_width_in",
+      "label": "Gangway width",
+      "value": 36.0,
+      "unit": "inch",
+      "min": 30.0,
+      "max": 60.0,
+      "step": 6.0,
+      "snap": true,
+      "group": "gangway"
+    },
+    "gangway_angle_deg": {
+      "name": "gangway_angle_deg",
+      "label": "Gangway slope (shore end up)",
+      "value": 4.0,
+      "unit": "degree",
+      "min": -20.0,
+      "max": 30.0,
+      "step": 0.5,
+      "snap": false,
+      "group": "gangway"
+    }
+  },
+  "features": [
+    {
+      "id": "feat.parameters",
+      "name": "Parameters",
+      "parents": [],
+      "kind": {
+        "type": "parameters"
+      },
+      "inputs": [],
+      "material": null,
+      "suppressed": false
+    },
+    {
+      "id": "feat.plan",
+      "name": "Plan sketch",
+      "parents": [
+        "feat.parameters"
+      ],
+      "kind": {
+        "type": "plan_sketch"
+      },
+      "inputs": [
+        "width_in",
+        "length_in",
+        "module_in"
+      ],
+      "material": null,
+      "suppressed": false
+    },
+    {
+      "id": "feat.floats",
+      "name": "Float pattern",
+      "parents": [
+        "feat.plan"
+      ],
+      "kind": {
+        "type": "float_pattern"
+      },
+      "inputs": [
+        "width_in",
+        "length_in",
+        "module_in",
+        "float_height_in"
+      ],
+      "material": "hdpe_float",
+      "suppressed": false
+    },
+    {
+      "id": "feat.frame",
+      "name": "Frame beams",
+      "parents": [
+        "feat.plan"
+      ],
+      "kind": {
+        "type": "frame_beams"
+      },
+      "inputs": [
+        "width_in",
+        "length_in",
+        "module_in",
+        "float_height_in",
+        "beam_width_in",
+        "beam_height_in",
+        "joist_spacing_in"
+      ],
+      "material": "alum_6061",
+      "suppressed": false
+    },
+    {
+      "id": "feat.deck",
+      "name": "Deck boards",
+      "parents": [
+        "feat.frame"
+      ],
+      "kind": {
+        "type": "deck_boards"
+      },
+      "inputs": [
+        "width_in",
+        "length_in",
+        "float_height_in",
+        "beam_height_in",
+        "deck_thickness_in"
+      ],
+      "material": "ipe",
+      "suppressed": false
+    },
+    {
+      "id": "feat.cleats",
+      "name": "Mooring cleats",
+      "parents": [
+        "feat.deck"
+      ],
+      "kind": {
+        "type": "cleats"
+      },
+      "inputs": [
+        "width_in",
+        "length_in",
+        "float_height_in",
+        "beam_width_in",
+        "beam_height_in",
+        "deck_thickness_in"
+      ],
+      "material": "ss316",
+      "suppressed": false
+    },
+    {
+      "id": "feat.bumpers",
+      "name": "End bumpers",
+      "parents": [
+        "feat.frame"
+      ],
+      "kind": {
+        "type": "bumpers"
+      },
+      "inputs": [
+        "width_in",
+        "length_in",
+        "float_height_in",
+        "beam_height_in"
+      ],
+      "material": "pvc_bumper",
+      "suppressed": false
+    },
+    {
+      "id": "feat.gangway",
+      "name": "Access gangway",
+      "parents": [
+        "feat.deck"
+      ],
+      "kind": {
+        "type": "gangway"
+      },
+      "inputs": [
+        "width_in",
+        "float_height_in",
+        "beam_height_in",
+        "deck_thickness_in",
+        "gangway_length_in",
+        "gangway_width_in"
+      ],
+      "material": "alum_6061",
+      "suppressed": false
+    },
+    {
+      "id": "feat.assembly",
+      "name": "Dock assembly",
+      "parents": [
+        "feat.floats",
+        "feat.frame",
+        "feat.deck",
+        "feat.cleats",
+        "feat.bumpers",
+        "feat.gangway"
+      ],
+      "kind": {
+        "type": "assembly"
+      },
+      "inputs": [
+        "live_load_psf",
+        "gangway_angle_deg"
+      ],
+      "material": null,
+      "suppressed": false
+    }
+  ],
+  "materials": {
+    "hdpe_float": {
+      "name": "Rotomolded HDPE float, foam filled",
+      "family": "polymer",
+      "density_lb_ft3": 59.0,
+      "color": [
+        0.1,
+        0.23,
+        0.3
+      ],
+      "max_span_in": null,
+      "stock_length_in": null,
+      "applies_to": [
+        "float_pattern"
+      ]
+    },
+    "alum_6061": {
+      "name": "6061-T6 aluminum rectangular tube",
+      "family": "aluminum",
+      "density_lb_ft3": 169.0,
+      "color": [
+        0.7,
+        0.74,
+        0.78
+      ],
+      "max_span_in": null,
+      "stock_length_in": 288.0,
+      "applies_to": [
+        "frame_beams",
+        "gangway"
+      ]
+    },
+    "galv_steel": {
+      "name": "Hot-dip galvanized steel tube",
+      "family": "steel",
+      "density_lb_ft3": 490.0,
+      "color": [
+        0.52,
+        0.55,
+        0.57
+      ],
+      "max_span_in": null,
+      "stock_length_in": 240.0,
+      "applies_to": [
+        "frame_beams"
+      ]
+    },
+    "ipe": {
+      "name": "Ipe hardwood decking",
+      "family": "hardwood",
+      "density_lb_ft3": 69.0,
+      "color": [
+        0.45,
+        0.28,
+        0.17
+      ],
+      "max_span_in": 24.0,
+      "stock_length_in": 240.0,
+      "applies_to": [
+        "deck_boards"
+      ]
+    },
+    "composite_deck": {
+      "name": "Capped composite decking",
+      "family": "composite",
+      "density_lb_ft3": 62.0,
+      "color": [
+        0.36,
+        0.33,
+        0.3
+      ],
+      "max_span_in": 16.0,
+      "stock_length_in": 240.0,
+      "applies_to": [
+        "deck_boards"
+      ]
+    },
+    "pt_pine": {
+      "name": "Pressure-treated southern pine",
+      "family": "softwood",
+      "density_lb_ft3": 36.0,
+      "color": [
+        0.62,
+        0.5,
+        0.33
+      ],
+      "max_span_in": 24.0,
+      "stock_length_in": 192.0,
+      "applies_to": [
+        "deck_boards"
+      ]
+    },
+    "ss316": {
+      "name": "316 stainless cast cleat",
+      "family": "stainless",
+      "density_lb_ft3": 499.0,
+      "color": [
+        0.84,
+        0.86,
+        0.88
+      ],
+      "max_span_in": null,
+      "stock_length_in": null,
+      "applies_to": [
+        "cleats"
+      ]
+    },
+    "pvc_bumper": {
+      "name": "Marine PVC D-profile bumper",
+      "family": "polymer",
+      "density_lb_ft3": 87.0,
+      "color": [
+        0.92,
+        0.92,
+        0.88
+      ],
+      "max_span_in": null,
+      "stock_length_in": 192.0,
+      "applies_to": [
+        "bumpers"
+      ]
+    }
+  },
+  "placements": {},
+  "mates": [
+    {
+      "id": "mate.gangway_hinge",
+      "name": "Gangway hinge",
+      "kind": "revolute",
+      "parent": {
+        "component": "deck.board.0",
+        "edge": "y-|z+"
+      },
+      "child": {
+        "component": "gangway.hinge",
+        "edge": "y-|z-"
+      },
+      "parameter": "gangway_angle_deg",
+      "value": 0.0,
+      "invert": true,
+      "limits": [
+        -20.0,
+        30.0
+      ]
+    }
+  ]
+}
