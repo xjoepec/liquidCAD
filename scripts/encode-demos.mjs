@@ -1,9 +1,9 @@
 #!/usr/bin/env node
-// Cuts artifacts/videos/e2e.webm (from npm run demo) into the README clips in
-// docs/media, using the per-test start/end marks in artifacts/videos/e2e.json.
+// Cuts artifacts/videos/e2e.webm (from npm run demo) into the archived feature clips in
+// docs/media/archive, using the per-test start/end marks in artifacts/videos/e2e.json.
 // Each clip is one or more test segments, joined in the order listed:
 //   <name>.mp4  H.264, full resolution, for downloading or playing locally
-//   <name>.gif  1000 px wide, 12 fps, for the README (GitHub plays GIFs inline)
+//   <name>.gif  1000 px wide, 12 fps, for embedding (GitHub plays GIFs inline)
 // Clips play at SPEED times the recorded rate, and the last frame is held so
 // the result can be read. Needs ffmpeg on PATH.
 import { execFileSync } from "node:child_process";
@@ -13,7 +13,7 @@ import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const src = path.join(root, "artifacts", "videos");
-const out = path.join(root, "docs", "media");
+const out = path.join(root, "docs", "media", "archive");
 
 const SPEED = 3;
 const HOLD = 1.5; // seconds the final frame stays up, after speed-up
