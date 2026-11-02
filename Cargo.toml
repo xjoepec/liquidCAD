@@ -16,7 +16,7 @@ members = [
 version = "0.1.0"
 edition = "2021"
 license = "MIT"
-repository = "https://github.com/liquidcad/liquidcad"
+repository = "https://github.com/xjoepec/liquidCAD"
 
 [workspace.dependencies]
 chrono = { version = "0.4", features = ["serde"] }

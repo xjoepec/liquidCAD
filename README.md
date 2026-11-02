@@ -1,5 +1,15 @@
 # liquidCAD
 
+[![test](https://github.com/xjoepec/liquidCAD/actions/workflows/test.yml/badge.svg)](https://github.com/xjoepec/liquidCAD/actions/workflows/test.yml)
+![status](https://img.shields.io/badge/status-early%20prototype-blue)
+![tests](https://img.shields.io/badge/tests-93%20rust%20%C2%B7%2027%20ui%20passing-brightgreen)
+![rust](https://img.shields.io/badge/rust-1.80%2B-orange)
+![node](https://img.shields.io/badge/node-20%2B-green)
+![shell](https://img.shields.io/badge/app-electron%20%C2%B7%20react%20%C2%B7%20three.js-purple)
+![exports](https://img.shields.io/badge/exports-DXF%20%C2%B7%20STEP%20%C2%B7%20PDF%20%C2%B7%20CSV-informational)
+![offline](https://img.shields.io/badge/runs-offline-lightgrey)
+[![license](https://img.shields.io/badge/license-MIT-yellow)](LICENSE)
+
 Desktop CAD for designing floating docks. Runs offline.
 
 [![liquidCAD demo](docs/media/00-liquidcad.gif)](docs/media/00-liquidcad.mp4)
@@ -47,3 +57,7 @@ npm run package # build a standalone app
 ## Credit
 
 Some ideas come from KinetiCAD by Andrew Blumson (MIT). No code was copied.
+
+## License
+
+MIT. See [LICENSE](LICENSE).
